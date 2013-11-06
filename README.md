@@ -1,13 +1,16 @@
 labicfakenect
 =============
-LabIC Fakenect - Fakenect w/ FREENECT_DEPTH_REGISTERED
-Laboratorio de Inteligencia Computacional - NCE/UFRJ - www.labic.nce.ufrj.br
-Author: Mario Cecchi <macecchi@gmail.com>
 
 Hacked Fakenect to record and play Kinect stream using FREENECT_DEPTH_REGISTERED and FREENECT_VIDEO_RGB.
 
-# Install
-Clone labicfakenect, create a directory for the build and use Cmake and make to configure the projet.
+- Laboratory Computational Intelligence - NCE/UFRJ ([http://www.labic.nce.ufrj.br](http://www.labic.nce.ufrj.br))
+- Author: Mario Cecchi ([http://meriw.com](http://meriw.com))
+
+- - -
+
+## Install
+Clone labicfakenect, create a directory for the build and use Cmake and make to configure the project.
+
 	cd labicfakenect
 	mkdir build
 	cd build
@@ -15,14 +18,18 @@ Clone labicfakenect, create a directory for the build and use Cmake and make to 
 	make
 	sudo make install
 
-# Use
+- - -
+
+## Use
 Use the programlabicrecord to record in FREENECT_DEPTH_REGISTERED format. This will generate a folder in your_new_output_path with the Kinect dump.
+
 	labicrecord your_new_output_path
 
 To play the recorded stream, use labicfakenect followed by the path to the recording, the path to the desired application and the optional app arguments.
+
 	labicfakenect your_new_output_path your_app_path your_optional_app_arguments
 
-## Manual mode (without labicfakenect wrapper)
+### Manual mode (without labicfakenect wrapper)
 The manual mode can be useful while using IDE's such as Eclipse, allowing you to debug your Kinect project using a recorded stream.
 
 In the running configurations, set two environment variables: LD_PRELOAD, which points to the fakenect library built from this project (.so file) and FAKENECT_PATH, pointing to the path of the recorded stream.
@@ -35,9 +42,8 @@ Example:
 Reference: http://kinectdiary.blogspot.com.br/2011/02/using-fakenect.html
 
 -----------------------------------------------------------------
-Original documentation from Fakenect follows below.
+# Fakenect
 
-Fakenect
 (c) 2010 Brandyn White <bwhite@dappervision.com>
 
 See this blog post for more info
