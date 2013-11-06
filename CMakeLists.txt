@@ -25,4 +25,4 @@ CONFIGURE_FILE("fakenect.sh.in"
   IMMEDIATE @ONLY)
 install (PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/labicfakenect.sh
   DESTINATION bin
-  RENAME fakenect)
+  RENAME labicfakenect)

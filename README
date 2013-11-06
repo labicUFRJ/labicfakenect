@@ -1,3 +1,22 @@
+LabIC Fakenect - Fakenect w/ FREENECT_DEPTH_REGISTERED
+Laboratorio de Inteligencia Computacional - NCE/UFRJ - www.labic.nce.ufrj.br
+Author: Mario Cecchi <macecchi@gmail.com>
+
+Hacked Fakenect to record and play Kinect stream using FREENECT_DEPTH_REGISTERED and FREENECT_VIDEO_RGB.
+Set two environment variables: LD_PRELOAD, which points to the fakenect library built from this project (.so) and FAKENECT_PATH, pointing to the path of the recorded Kinect set using labicrecord.
+OBS: labicfakenect.sh may not work.
+Use labicrecord to record in FREENECT_DEPTH_REGISTERED format and the instructions below to run your program with the recorded set.
+
+Example:
+
+$	labicrecord set1
+$	LD_PRELOAD="/usr/local/lib/fakenect/libfreenect.so" FAKENECT_PATH="./set1/" ./labickinect
+
+
+Reference: http://kinectdiary.blogspot.com.br/2011/02/using-fakenect.html
+
+-----------------------------------------------------------------
+
 Fakenect
 (c) 2010 Brandyn White <bwhite@dappervision.com>
 

@@ -279,6 +279,7 @@ int freenect_set_video_mode(freenect_device* dev, const freenect_frame_mode mode
 {
         // Always say it was successful but continue to pass through the
         // underlying data.  Would be better to check for conflict.
+		printf("SETTING VIDEO MODE FAKE\n");
         return 0;
 }
 
@@ -286,7 +287,18 @@ int freenect_set_depth_mode(freenect_device* dev, const freenect_frame_mode mode
 {
         // Always say it was successful but continue to pass through the
         // underlying data.  Would be better to check for conflict.
+		printf("SETTING DEPTH MODE FAKE\n");
         return 0;
+}
+
+freenect_frame_mode freenect_get_current_depth_mode(freenect_device *dev)
+{
+	return freenect_find_depth_mode(FREENECT_RESOLUTION_MEDIUM, FREENECT_DEPTH_REGISTERED);
+}
+
+freenect_frame_mode freenect_get_current_video_mode(freenect_device *dev)
+{
+	return freenect_find_video_mode(FREENECT_RESOLUTION_MEDIUM, FREENECT_VIDEO_RGB);
 }
 
 freenect_frame_mode freenect_find_video_mode(freenect_resolution res, freenect_video_format fmt) {
@@ -303,7 +315,7 @@ freenect_frame_mode freenect_find_depth_mode(freenect_resolution res, freenect_d
     assert(FREENECT_DEPTH_REGISTERED == fmt);
     // NOTE: This will leave uninitialized values if new fields are added.
     // To update this line run the "record" program, look at the top output
-    freenect_frame_mode out = {256, 1, {0}, 614400, 640, 480, 11, 5, 30, 1};
+    freenect_frame_mode out = {260, 1, {4}, 614400, 640, 480, 16, 0, 30, 1};
     return out;
 }
 
@@ -384,7 +396,7 @@ int freenect_set_video_format(freenect_device *dev, freenect_video_format fmt)
 }
 int freenect_set_depth_format(freenect_device *dev, freenect_depth_format fmt)
 {
-	assert(fmt == FREENECT_DEPTH_11BIT);
+	assert(fmt == FREENECT_DEPTH_REGISTERED);
 	return 0;
 }
 
