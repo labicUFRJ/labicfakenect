@@ -279,7 +279,7 @@ int freenect_set_video_mode(freenect_device* dev, const freenect_frame_mode mode
 {
         // Always say it was successful but continue to pass through the
         // underlying data.  Would be better to check for conflict.
-		printf("SETTING VIDEO MODE FAKE\n");
+		//printf("SETTING VIDEO MODE FAKE\n");
         return 0;
 }
 
@@ -287,7 +287,7 @@ int freenect_set_depth_mode(freenect_device* dev, const freenect_frame_mode mode
 {
         // Always say it was successful but continue to pass through the
         // underlying data.  Would be better to check for conflict.
-		printf("SETTING DEPTH MODE FAKE\n");
+		//printf("SETTING DEPTH MODE FAKE\n");
         return 0;
 }
 

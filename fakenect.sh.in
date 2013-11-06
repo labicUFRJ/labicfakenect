@@ -42,9 +42,12 @@ export FAKENECT_PATH=$1
 # set link path (LD_LIBRARY_PATH for Linux, DYLIB_LIBRARY_PATH for OS X)
 if [ `uname` == "Darwin" ];
 then
-  export DYLD_LIBRARY_PATH="@CMAKE_INSTALL_PREFIX@/@PROJECT_LIBRARY_INSTALL_DIR@/labicfakenect/:${LD_LIBRARY_PATH}"
+  #export DYLD_LIBRARY_PATH="@CMAKE_INSTALL_PREFIX@/@PROJECT_LIBRARY_INSTALL_DIR@/labicfakenect/:${LD_LIBRARY_PATH}"
+  export DYLD_LIBRARY_PATH="@PROJECT_BINARY_DIR@/lib/labicfakenect/libfreenect.so"
+
 else
-  export LD_LIBRARY_PATH="@CMAKE_INSTALL_PREFIX@/@PROJECT_LIBRARY_INSTALL_DIR@/labicfakenect/:${LD_LIBRARY_PATH}"
+  #export LD_LIBRARY_PATH="@CMAKE_INSTALL_PREFIX@/@PROJECT_LIBRARY_INSTALL_DIR@/labicfakenect/:${LD_LIBRARY_PATH}"
+  export LD_PRELOAD="@PROJECT_BINARY_DIR@/lib/labicfakenect/libfreenect.so"
 fi
 
 # run desired app w/ args, now that environment is configured
