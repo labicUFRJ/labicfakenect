@@ -33,9 +33,7 @@ add_executable(glviewregistered glviewregistered.c)
 
 # Example
 if (BUILD_GLVIEW_EXAMPLE)
-find_library(M_LIB m)
-
-#include_directories(/usr/local/include/libfreenect)
+include_directories(/usr/local/include/libfreenect)
 # Mac just has everything already
 if(APPLE)
   set(CMAKE_EXE_LINKER_FLAGS "-framework OpenGL -framework GLUT")
@@ -49,7 +47,7 @@ else()
 
   include_directories(${OPENGL_INCLUDE_DIR} ${GLUT_INCLUDE_DIR} ${USB_INCLUDE_DIRS})
 
-  target_link_libraries(glviewregistered freenect ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} ${CMAKE_THREAD_LIBS_INIT}  ${M_LIB})
+  target_link_libraries(glviewregistered freenect ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} ${CMAKE_THREAD_LIBS_INIT} ${MATH_LIB})
 endif()
 
 install (TARGETS glviewregistered DESTINATION bin)
